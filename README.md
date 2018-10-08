@@ -4,6 +4,7 @@ A web application that allows users to list spaces they have available, and to h
 
 ## User Stories
 
+```
 As a user
 I can sign up
 So that I have a unique profile.
@@ -51,3 +52,4 @@ So that others users cannot try to book the space.
 As a signed-up user
 I can show that a room is still available 
 So that I can still recieve requests from other users for the space.
+```
