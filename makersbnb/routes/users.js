@@ -9,6 +9,11 @@ router.get('/', function(req, res) {
 
 router.get('/:id', function(req, res) {
   res.json(users[req.params.id])
-})
+});
+
+router.post('/', function(req, res) {
+  users.push(req.body.name)
+  res.redirect('/')
+});
 
 module.exports = router;
