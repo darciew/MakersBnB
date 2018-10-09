@@ -3,6 +3,7 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 let should = chai.should()
 
+
 chai.use(chaiHttp);
 
 describe("/GET users", function() {
@@ -31,13 +32,14 @@ describe("/GET users/0", function() {
 
 describe("/POST user", function() {
   it("adds a user", function(done) {
+    let details = {"name": "Jim"}
     chai.request(app)
-    .post('/users/signup')
+    .post('/users')
     .send(details)
     .end(function(err, res) {
       res.should.have.status(200);
-      chai.request(server)
-      .get('/users/signup')
+      chai.request(app)
+      .get('/users')
       .end(function(err, res) {
         res.should.have.status(200);
         done()
