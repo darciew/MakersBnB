@@ -6,14 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/helloworld', function(req, res) {
-  res.render('helloworld');
-});
-
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
     var db = req.db;
-    var collection = db.get('usercollection');
+    var collection = db.get('user');
     collection.find({},{},function(e,docs){
         res.render('userlist', {
             "userlist" : docs
@@ -37,7 +33,7 @@ router.post('/adduser', function(req, res) {
     var userEmail = req.body.useremail;
 
     // Set our collection
-    var collection = db.get('usercollection');
+    var collection = db.get('user');
 
     // Submit to the DB
     collection.insert({
